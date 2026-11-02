@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Variable
+RISH=./rish
+
+# Thermal control
+if [ "$1" = "reset" ]; then
+ $RISH -c "cmd thermalservice reset"
+  echo "Thermal level unlocked"
+else
+ $RISH -c "cmd thermalservice override-status $1"
+  echo "Thermal locked at: Level $1"
+fi
